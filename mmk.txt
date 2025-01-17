@@ -1,0 +1,812 @@
+<?php
+include 'koneksi.php';
+include_once "assets/inc.php";
+?>
+<?php 
+$query=mysqli_query($con, "SELECT * FROM t_kantor");
+while ($bc=mysqli_fetch_array($query)) {
+ $j1=substr($bc['nm_kantor'], 0,1);
+ $j2=substr($bc['nm_kantor'], 7,1);
+ $j3=substr($bc['nm_kantor'], 17,1);
+ $j4=substr($bc['nm_kantor'], 27,14);
+
+ ?>
+ <!DOCTYPE html>
+ <html>
+
+ <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
+    <title><?php echo $j1;?><?php echo $j2;?><?php echo $j3;?>&nbsp;<?php echo $j4;?></title>
+    <link rel="stylesheet" href="assets/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="assets/assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/assets/css/Footer-Basic-icons.css">
+    <!-- CSS -->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link rel="stylesheet" href="assets/wizard/wizard.css">
+    <link rel="stylesheet" href="assets/cssmenu.css">
+    <!-- PROGRES UPLOAD -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!--- Auto Complete -->
+    <script src="assets/autocomplete/jquery-1.9.1-jquery.js"></script>
+    <script src="assets/autocomplete/bootstrap3-typeahead.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!---
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
+-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/rating/css/star-rating.css" media="all" type="text/css"/>
+    <link rel="stylesheet" href="assets/rating/themes/krajee-fa/theme.css" media="all" type="text/css"/>
+    <link rel="stylesheet" href="assets/rating/themes/krajee-svg/theme.css" media="all" type="text/css"/>
+    <link rel="stylesheet" href="assets/rating/themes/krajee-uni/theme.css" media="all" type="text/css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="assets/rating/js/star-rating.js" type="text/javascript"></script>
+    <script src="assets/rating/themes/krajee-gly/theme.js" type="text/javascript"></script>
+
+    <style>
+
+/* Ikon media sosial */
+.sticky-container{ padding:0px; margin:0px; position:fixed; right:-150px;top:82%; width:220px; z-index: 1100;}
+.sticky li{list-style-type:none;background-color:#fff;color:#efefef;height:43px;padding:0px;margin:0px 0px 1px 0px; -webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out; transition:all 0.25s ease-in-out; cursor:pointer;}
+.sticky li:hover{margin-left:-70px;right:-100px;}
+.sticky li img{float:left;margin:5px 4px;margin-right:5px;}
+.sticky li p{float:left;padding-top:5px;margin:0px;line-height:16px; font-size:11px;margin-left:60px;}
+.sticky li p a{text-decoration:none; color:#2C3539;margin-left:-70px;}
+.sticky li p a:hover{margin-left:-70px;}
+
+</style>
+<style>
+hr.tall{
+    margin: 10px 0; 
+    background-image: -webkit-linear-gradient(left, transparent, #00b0f0, transparent);
+    background-image: linear-gradient(to right, transparent, #00b0f0, transparent);
+}
+    .portal-idx{
+        margin: 0 150px
+    }
+    .sparator-idx{
+        padding:0 45px;
+    }
+    @media only screen and (max-width: 600px) {
+        .portal-idx{
+            margin: 0 50px
+        }
+        .sparator-idx{
+            margin: 0 50px
+        }
+    }
+</style>
+<style type="text/css">
+    img.sinkarkes{
+        width: 155%;
+    }
+    img.sinkarkess{
+        width: 110px;
+    }
+    @media screen and (max-width: 910px) {
+   img.sinkarkes{
+    width:100%;
+    }
+    img.sinkarkess{
+    width:100%;
+    }
+}
+</style>
+
+</head>
+
+<body class="bg-gradient-primary">
+    <nav class="navbar navbar-dark navbar-expand-md bg-dark py-2">
+        <div class="container"style="content:'';"><a class="navbar-brand d-flex align-items-center" href="#"><span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon"><i class="fas fa-ship"></i></span><span><?php echo $j1;?><?php echo $j2;?><?php echo $j3;?>&nbsp;<?php echo $j4;?></span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-6"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse flex-grow-0 order-md-first" id="navcol-6">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-home"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="daftar_pengajuan.php">&nbsp;&nbsp;&nbsp;&nbsp;Cek Pengajuan</a></li>
+                    <li class="nav-item"><div class="d-md-none my-2">&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-primary" role="button" href="login.php">Login Petugas</a></div></li>
+                </ul>
+            </div> <div class="d-none d-md-block" ><a>&nbsp;</a></div>
+
+
+        </div> <div class="d-none d-md-block" ><a class="btn btn-primary" role="button" href="login.php">Login Petugas</a></div>
+    </nav>
+
+    <div class="container">
+     <div class="row">
+        <div class="d-md-none mt-2" align="left" style="width:50%"><img width="50" height="42" src="assets/assets/img/logokemenkes.png">
+        </div>
+        <div class="d-md-none mt-2" align="right" style="width:50%"><img src="assets/assets/img/logokkp.png" width="50" height="42">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 d-md-none my-2" align="center"><label class="form-label fw-bolder text-primary" for="judul"><span style="font-size: 12px; text-shadow: -1px 1px rgb(2,6,18);font-weight: bold; text-align: center; color: white;"><strong>KEMENTERIAN KESEHATAN REPUBLIK INDONESIA<br>DIREKTORAT JENDERAL PENCEGAHAN DAN PENGENDALIAN PENYAKIT</strong></span><br><span style="font-size: 12px; text-shadow: -1px 1px rgb(2,6,18);font-weight: bold; text-align: center; color: white;">KANTOR KESEHATAN PELABUHAN <?php echo strtoupper($bc['kab']);?></span></label></div>
+
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2 d-none d-md-block mt-4" align="center"><img width="72" height="62" src="assets/assets/img/logokemenkes.png"></div>
+        <div class="col-lg-8 d-none d-md-block mt-4" align="center"><label class="form-label fw-bolder text-primary" for="judul"><span style="font-size: 18px; text-shadow: -1px 1px rgb(2,6,18);font-weight: bold; text-align: center; color: white;"><strong>KEMENTERIAN KESEHATAN REPUBLIK INDONESIA<br>DIREKTORAT JENDERAL PENCEGAHAN DAN PENGENDALIAN PENYAKIT</strong></span><br><span style="font-size: 18px; text-shadow: -1px 1px rgb(2,6,18);font-weight: bold; text-align: center; color: white;">KANTOR KESEHATAN PELABUHAN <?php echo strtoupper($bc['kab']);?></span></label></div>
+        <div class="col-md-2 d-none d-md-block mt-4" align="center"><img src="assets/assets/img/logokkp.png" width="72" height="62" style="text-align: center;position: static;"></div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="card o-hidden my-5 col-lg-6">
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="p-0">
+                            <div class="text-center">
+                                <h4 class="text-dark mb-3 mt-5" style="text-shadow: 1px 1px 2px;">Pengajuan Keberangkatan Kapal</h4>
+                            </div>
+
+                            <form action="aksi/s_pengajuan.php" method="POST" class="f1" enctype="multipart/form-data" >
+                                <div class="f1-steps">
+                                  <div class="f1-progress">
+                                      <div class="f1-progress-line" data-now-value="20" data-number-of-steps="5" style="width: 12%;"></div>
+                                  </div>
+
+
+                                  <div class="f1-step active">
+                                    <div class="f1-step-icon"><i class="fa fa-building"></i></div>
+                                    <p>Owner</p>
+                                </div>
+                                <div class="f1-step">
+                                    <div class="f1-step-icon"><i class="fa fa-ship"></i></div>
+                                    <p>Ship</p>
+                                </div>
+                                <div class="f1-step">
+                                    <div class="f1-step-icon"><i class="fa fa-map"></i></div>
+                                    <p>Location</p>
+                                </div>
+                                <div class="f1-step">
+                                    <div class="f1-step-icon"><i class="fa fa-file"></i></div>
+                                    <p>Document</p>
+                                </div>
+                                <div class="f1-step">
+                                    <div class="f1-step-icon"><i class="fa fa-users"></i></div>
+                                    <p>Crew / Psg</p>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-lg-4"><label class="col-form-label" style="text-transform: uppercase;">Wilayah Kerja / <i>Working Area</i></label></div>
+                                <div class="col-lg-8">
+                                    <select id="wilker" name="wilker" class="form-control required" style="font-weight: bold;" required>
+                                        <option value="" selected disabled>--- Pilih Wilayah Kerja ---</option>
+                                        <?php 
+                                        $dev=mysqli_query($con, "SELECT * FROM t_devisi ORDER BY id_dev ASC");
+                                        while($bd =mysqli_fetch_array($dev)){ 
+                                            ?> 
+                                            <option value="<?php echo $bd['devisi'];?>"><?php echo $bd['devisi'];?></option><?php } ?>
+                                        </select>
+                                    </div>
+
+                                </div>
+
+                                <!-- step 1 -->
+                                <fieldset style="box-shadow:1px 1px 1px; padding: 10px;">
+                                    <div class="row mb-3">
+                                        <div class="col-lg-4"><label class="col-form-label">Perusahan/Owner</label></div>
+                                        <div class="col-lg-8"><input id="owner" name="owner" class="form-control" type="text" placeholder="Perusahaan"></div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-lg-4"><label class="col-form-label">Nama Pengurus</label></div>
+                                        <div class="col-lg-8"><input id="pgr" name="pgr" class="form-control" type="text" placeholder="Nama Pengurus"></div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-lg-4"><label class="col-form-label">No. HP. Pengurus</label></div>
+                                        <div class="col-lg-6"><input id="hppgr" name="hppgr" class="form-control" type="text" placeholder="Nomor Hp. Pengurus"></div>
+                                    </div>
+                                    <hr>
+                                    <div class="f1-buttons">
+                                        <button type="button" class="btn btn-primary btn-next" onclick="return penting(this);">Selanjutnya <i class="fa fa-arrow-right"></i></button>
+                                    </div>
+                                </fieldset>
+                                <!-- step 2 -->
+                                <fieldset style="box-shadow:1px 3px 5px; padding: 20px;">
+                                    <div class="row mb-3">
+                                        <div class="col-lg-4"><label class="col-form-label">Nama Kapal / <i>Name of Ship</i></label></div>
+                                        <div class="col-lg-8"><input id="ship_nm" name="ship_nm" onchange="isiidkapal()" class="typeahead form-control" type="text" placeholder="Nama Kapal"></div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-lg-4"><label class="col-form-label">Nama Nahkoda / <i> Master's Name</i></label></div>
+                                        <div class="col-lg-8"><input id="master_nm" name="master_nm" class="form-control" type="text" placeholder="Nama Nahkoda"></div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-lg-4"><label class="col-form-label">Bendera / <i>Flag</i></label></div>
+                                        <div class="col-lg-8"><input id="flag" name="flag" class="form-control" type="text" placeholder="Bendera"></div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-lg-4"><label class="col-form-label">Nomor IMO / <i>IMO Number</i></label></div>
+                                        <div class="col-lg-8"><input id="imo" name="imo" class="form-control" type="text" placeholder="Nomor IMO"></div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-lg-4"><label class="col-form-label">Type Kapal / <i>Ship type</i></label></div>
+                                        <div class="col-lg-6"><select id="type" name="type" class="form-control">
+                                            <option value="" selected >-- Type Kapal --</option>
+                                            <?php 
+                                            $data=mysqli_query($con, "SELECT * FROM t_typekapal");
+                                            $no=1;
+                                            while($tk =mysqli_fetch_array($data)){ 
+                                                ?> 
+                                                <option value="<?php echo $tk['type'];?>"><?php echo $tk['type'];?></option><?php } ?>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-lg-4"><label class="col-form-label">GT</i></label></div>
+                                        <div class="col-lg-4"><input id="gt" name="gt" class="form-control" type="text" onkeypress="return hanyaAngka(event)" placeholder="GT"></div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-lg-4"><label class="col-form-label">Klasifikasi GT</i></label></div>
+                                        <div class="col-lg-6"><select id="kgt" name="kgt" class="form-control">
+                                            <option value="" selected >-- Klasifikasi GT --</option>
+                                            <option value="< 100 GT">< 100 GT</option>
+                                            <option value=">100 - 200 GT">>100 - 200 GT</option>
+                                            <option value=">200 - 350 GT">>200 - 350 GT</option>
+                                            <option value=">350 - 1000 GT">>350 - 1000 GT</option>
+                                            <option value=">1000- 2000 GT">>1000- 2000 GT</option>
+                                            <option value=">2000 - 3500 GT">>2000 - 3500 GT</option>
+                                            <option value=">3500 - 7000 GT">>3500 - 7000 GT</option>
+                                            <option value=">7000 - 10000 GT">>7000 - 10000 GT</option>
+                                            <option value=">10000 - 15000 GT">>10000 - 15000 GT</option>
+                                            <option value=">15000 - 20000 GT">>15000 - 20000 GT</option>
+                                            <option value=">20000 GT">>20000 GT</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-lg-4"><label class="col-form-label">Kategori Kapal</i></label></div>
+                                    <div class="col-lg-4"><select id="cat" name="cat" class="form-control">
+                                        <option value="" selected >-- Kategori Kapal --</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-lg-4"><label class="col-form-label">Jumlah Life Boat</i></label></div>
+                                <div class="col-lg-3"><input id="lboat" name="lboat" class="form-control" type="number" onkeypress="return hanyaAngka(event)" placeholder="0"></div>
+                            </div>
+                            <hr>
+                            <div class="f1-buttons">
+                                <button type="button" class="btn btn-warning btn-previous pull-left"><i class="fa fa-arrow-left"></i> Sebelumnya</button>
+                                <button type="button" class="btn btn-primary btn-next pull-right">Selanjutnya <i class="fa fa-arrow-right"></i></button>
+                            </div>
+                        </fieldset>
+                        <!-- step 3 -->
+                        <fieldset style="box-shadow:1px 3px 5px; padding: 20px;">
+                            <div class="row mb-3">
+                                <div class="col-lg-4"><label class="col-form-label">Lokasi Kapal / <i>Ship Location</i></label></div>
+                                <div class="col-lg-8"><input id="lok" name="lok" class="form-control" type="text" placeholder="Lokasi Kapal"></div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-lg-4"><label class="col-form-label">Posisi Kapal / <i> Ship Position</i></label></div>
+                                <div class="col-lg-8">
+                                    <div class="icheck-primary d-inline">
+                                        <input type="radio" id="pos1" name="pos" value="Labuh">
+                                        <label for="pos1">Labuh
+                                        </label>&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" id="pos2" name="pos" value="Sandar">
+                                        <label for="pos2">Sandar
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-lg-4"><label class="col-form-label">Tanggal Tiba / <i>Arrival Date</i></label></div>
+                                <div class="col-lg-5"><input id="datea" name="datea" class="form-control" type="date" placeholder="Tanggal Tiba"></div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-lg-4"><label class="col-form-label">Pelabuhan Asal / <i>Last Port</i></label></div>
+                                <div class="col-lg-8"><input id="lport" name="lport" class="form-control" type="text" placeholder="Pelabuhan Asal"></div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-lg-4"><label class="col-form-label">Status Pelabuhan Asal / <i>Last Port</i></label></div>
+                                <div class="col-lg-8">
+                                    <select id="slport" name="slport" class="form-control">
+                                        <option value="" selected >-- Status Pelabuhan Asal --</option>
+                                        <option value="Dalam Negeri - Sehat">Dalam Negeri - Sehat</option>
+                                        <option value="Dalam Negeri - Terjangkit">Dalam Negeri - Terjangkit</option>
+                                        <option value="Luar Negeri - Sehat">Luar Negeri - Sehat</option>
+                                        <option value="Luar Negeri - Terjangkit">Luar Negeri - Terjangkit</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-lg-4"><label class="col-form-label">Tanggal Berangkat / <i> Departure Date</i></label></div>
+                                <div class="col-lg-5"><input id="dep" name="dep" class="form-control" type="date" placeholder="Tanggal Berangkat"></div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-lg-4"><label class="col-form-label">Pelabuhan Tujuan / <i>Next Port</i></label></div>
+                                <div class="col-lg-8"><input id="nport" name="nport" class="form-control" type="text" placeholder="Pelabuhan Tujuan"></div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-lg-4"><label class="col-form-label">Status Pelabuhan Tujuan / <i>Next Port Status</i></label></div>
+                                <div class="col-lg-8">
+                                    <select id="snport" name="snport" class="form-control">
+                                        <option value="" selected >-- Status Pelabuhan Tujuan --</option>
+                                        <option value="Dalam Negeri - Sehat">Dalam Negeri - Sehat</option>
+                                        <option value="Dalam Negeri - Terjangkit">Dalam Negeri - Terjangkit</option>
+                                        <option value="Luar Negeri - Sehat">Luar Negeri - Sehat</option>
+                                        <option value="Luar Negeri - Terjangkit">Luar Negeri - Terjangkit</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="f1-buttons">
+                                <button type="button" class="btn btn-warning btn-previous pull-left"><i class="fa fa-arrow-left"></i> Sebelumnya</button>
+                                <button type="button" class="btn btn-primary btn-next  pull-right">Selanjutnya <i class="fa fa-arrow-right"></i></button>
+                            </div>
+                        </fieldset>
+                        <!-- step 4 -->
+                        <fieldset style="box-shadow:1px 3px 5px; padding: 20px;">
+                            <div class="row mb-3">
+                                <div class="col-lg-4"><label class="col-form-label">Tanggal Penerbitan SSCEC /SSCC</label></div>
+                                <div class="col-lg-5"><input id="sscecdate" name="sscecdate" class="form-control" type="date" placeholder="Tanggal Penerbitan Dokumen SSCEC / SSCC"></div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-lg-4"><label class="col-form-label">Tempat Penerbitan SSCEC /SSCC</label></div>
+                                <div class="col-lg-8"><input id="sscectmp" name="sscectmp" class="form-control" type="text" placeholder="Tempat Penerbitan Dokumen SSCEC / SSCC"></div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-lg-4"><label class="col-form-label">Tanggal Penerbitan P3K</label></div>
+                                <div class="col-lg-5"><input id="p3kdate" name="p3kdate" class="form-control" type="date" placeholder="Tanggal Penerbitan Dokumen P3K"></div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-lg-4"><label class="col-form-label">Tempat Penerbitan P3K</label></div>
+                                <div class="col-lg-8"><input id="p3ktmp" name="p3ktmp" class="form-control" type="text" placeholder="Tempat Penerbitan Dokumen P3K"></div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-lg-4"><label class="col-form-label">Tanggal Penerbitan Buku Kesehatan</label></div>
+                                <div class="col-lg-5"><input id="hbookdate" name="hbookdate" class="form-control" type="date" placeholder="Tanggal Penerbitan Buku Kesehatan"></div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-lg-4"><label class="col-form-label">Tempat Penerbitan Buku Kesehatan</label></div>
+                                <div class="col-lg-8"><input id="hbooktmp" name="hbooktmp" class="form-control" type="text" placeholder="Tempat Penerbitan Buku Kesehatan"></div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-lg-4"><label class="col-form-label">Nomor Buku Kesehatan</label></div>
+                                <div class="col-lg-8"><input id="nhbook" name="nhbook" class="form-control" type="text" placeholder="Nomor Buku Kesehatan"></div>
+                            </div>
+
+                            <div class="f1-buttons">
+                                <button type="button" class="btn btn-warning btn-previous pull-left"><i class="fa fa-arrow-left"></i> Sebelumnya</button>
+                                <button type="button" class="btn btn-primary btn-next pull-right">Selanjutnya <i class="fa fa-arrow-right"></i></button>
+                            </div>
+                        </fieldset>
+                        <!-- step 5 -->
+                        <fieldset style="box-shadow:1px 3px 5px; padding: 20px;"><div class="row mb-3">
+                            <div class="col-lg-4"><label class="col-form-label">Jumlah ABK RI</label></div>
+                            <div class="col-lg-3"><input id="abkri" name="abkri" class="form-control" type="number" onkeypress="return hanyaAngka(event)" placeholder="0"></div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-lg-4"><label class="col-form-label">Jumlah ABK Asing</label></div>
+                            <div class="col-lg-3"><input id="abkasing" name="abkasing" class="form-control" type="number" onkeypress="return hanyaAngka(event)"placeholder="0"></div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-lg-4"><label class="col-form-label">Jumlah Penumpang Turun</label></div>
+                            <div class="col-lg-3"><input id="psgt" name="psgt" class="form-control" type="number" onkeypress="return hanyaAngka(event)" placeholder="0"></div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-lg-4"><label class="col-form-label">Jumlah Penumpang Lanjutan</label></div>
+                            <div class="col-lg-3"><input id="psgl" name="psgl" class="form-control" type="number" onkeypress="return hanyaAngka(event)" placeholder="0"></div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-lg-4"><label class="col-form-label">Jumlah Penumpang Naik</label></div>
+                            <div class="col-lg-3"><input id="psgn" name="psgn" class="form-control" type="number" onkeypress="return hanyaAngka(event)" placeholder="0">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-lg-4"><label class="col-form-label">Berkas Pengajuan</label></div>
+                            <div class="col-lg-8"><input type="file" id="file" name="file" onchange="return fileValidation()" required class="form-control"><small>Lampirkan file dengan format pdf</small></div>
+                        </div>
+                        <div id="imagePreview"></div>
+                        <div class="row mb-3">
+                            <div class="col-lg-12">
+                                <progress id="progressBar" value="0" max="100" style="width:100%; display: none;"></progress>
+                                <h3 id="status"></h3>
+                                <p id="loaded_n_total"></p></div>
+                            </div>
+                            <hr>
+                            <div class="f1-buttons">
+                                <button type="button" class="btn btn-warning btn-previous pull-left"><i class="fa fa-arrow-left"></i> Sebelumnya</button>
+                                <button type="submit" id="upload" name="kirim" class="btn btn-primary btn-next pull-right">Kirim Pengajuan <i class="fa fa-arrow-right"></i></button>
+                            </div>
+                        </fieldset>
+                    </form>
+                    <br>
+                    <div class="text-center">
+                        <a class="small" href="daftar_pengajuan.php" style="text-decoration: none;">Lihat Pengajuan</a>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="card my-5 col-lg-6 pl-0 pt-5" style="background-color: grey; filter: brightness(97%) contrast(100%);">
+    <div class="card-body">
+        <div class="row mb-3">
+            <div class="col-lg-12" align="center">
+                <div class="content"><a href="https://sinkarkes.kemkes.go.id/"><img src="assets/assets/img/SINKARKES.png" style="width:220px; height: auto;"></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 sparator-idx">
+            <hr class="tall">
+        </div>
+        <div class="col-lg-12">
+            <div class="row mb-3">
+                <div class="flexBox" style="display: flex;flex-flow: row wrap; justify-content: center;">
+                <div class="col-sm-6 col-md-3 mb-3">
+                    <a href="https://sinkarkes.kemkes.go.id/vaksinasi_int/vaksinasi_int_public/add" target="_blank"><img src="assets/assets/img/vaksin_putih1.png" class="sinkarkess"></a>
+                </div>
+                <div class="col-sm-6 col-md-3 mb-3">
+                    <a href="https://sinkarkes.kemkes.go.id/portal/welcome/pelayanan_kapal" target="_blank"><img src="assets/assets/img/kapal_putih1.png" class="sinkarkess"></a>
+                </div>
+                <div class="col-sm-6 col-md-3 mb-3">
+                    <a href="https://sinkarkes.kemkes.go.id/portal/welcome/pelayanan_plbdn" target="_blank"><img src="assets/assets/img/plbdn_putih1.png" class="sinkarkess"></a>
+                </div>
+                <div class="col-sm-6 col-md-3 mb-3">
+                    <a href="https://sinkarkes.kemkes.go.id/portal/pelayanan_pesawat" target="_blank"><img src="assets/assets/img/pesawat_putih2.png" class="sinkarkess"></a>
+                </div>
+</div>
+            </div>
+        </div>
+        <div class="col-lg-12 center-block">
+            <div class="row mb-3">
+                <div class="flexBox" style="display: flex;flex-flow: row wrap; justify-content: center;">
+                <div class="col-sm-6 col-md-6 col-lg-2 mb-3">
+                    <a href="https://sinkarkes.kemkes.go.id/auth/login_rs" target="_blank"><img src="assets/assets/img/icv.png" class="sinkarkes"></a>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-2 mb-3">
+                    <a href="https://omkaba-sinkarkes.kemkes.go.id/" target="_blank"><img src="assets/assets/img/omkaba.png" class="sinkarkes"></a>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-2 mb-3">
+                    <a href="https://www.itjen.depkes.go.id/wbs/" target="_blank"><img src="assets/assets/img/link-whistleblowing-system.png" class="sinkarkes"></a>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-2 mb-3">
+                    <a href="https://sinkarkes.kemkes.go.id/welcome/check_document" target="_blank"><img src="assets/assets/img/dokumen.png" class="sinkarkes"></a>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-2 mb-3">
+                    <a href="https://www.infopenyakit.org/def_menu.asp?menuId=32&menuType=1" target="_blank"><img src="assets/assets/img/link-infopenyakit.png" class="sinkarkes"></a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+<footer class="text-center py-4" style="box-shadow: 0px 0px 7px var(--bs-light);background: #222222;">
+    <div class="col" style="text-align: center;"><label class="col-form-label" style="color: var(--bs-indigo);text-shadow: -1px 0px var(--bs-black);">Alamat : <?php echo $bc['almt'];?></label></div>
+<?php }?>
+<div class="container">
+    <div class="row row-cols-1 row-cols-lg-3">
+        <div class="col">
+            <p class="text-muted my-2">Copyright&nbsp;@kkp ©2022 </p>
+        </div>
+        <div class="col">
+            <ul class="list-inline my-2">
+                <li class="list-inline-item me-4">
+                    <div class="bs-icon-circle bs-icon-primary bs-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-facebook">
+                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"></path>
+                    </svg></div>
+                </li>
+                <li class="list-inline-item me-4">
+                    <div class="bs-icon-circle bs-icon-primary bs-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-twitter">
+                        <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path>
+                    </svg></div>
+                </li>
+                <li class="list-inline-item">
+                    <div class="bs-icon-circle bs-icon-primary bs-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-instagram">
+                        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"></path>
+                    </svg></div>
+                </li>
+            </ul>
+        </div>
+        <div class="col">
+            <ul class="list-inline my-2">
+                <li class="list-inline-item"><a class="link-secondary" href="#">Privacy Policy</a></li>
+                <li class="list-inline-item"><a class="link-secondary" href="#">Terms of Use</a></li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+<div class="sticky-container">
+    <ul class="sticky">
+        <li>
+            <img src="file/images/wa.png" width="32" height="32">
+            <p><a href="https://api.whatsapp.com/send?phone=6283191422930" target="_blank">Whatsapp</a></p>
+        </li>
+        <li>
+            <img src="file/images/saran.png" width="32" height="32">
+            <p><a href="#" data-toggle="modal" data-target="#modalSaran">Saran</a></p>
+        </li>
+
+    </ul>
+</div>
+<?php 
+$tgl=gmdate("Y-m-d H:i", time()+60*60*7);
+$jam=gmdate("H:i", time()+60*60*7);
+?>
+<div class="modal fadeIn" id="modalSaran" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mediumModalLabel">KIRIM SARAN</h5>
+            </div>
+            <div class="modal-body">
+
+                <form action="aksi/s_saran.php" onsubmit="return validasi_input(this)" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    <div class="card-body card-block">
+
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="nama" class=" form-control-label">Nama</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="nama" name="nama" placeholder="Nama Lengkap" class="form-control"><input type="hidden" id="tgl" name="tgl" value="<?php echo $tgl;?>" class="form-control"></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="email" class=" form-control-label">E-mail</label></div>
+                            <div class="col-12 col-md-9"><input type="email" id="email" name="email" placeholder="Alamat E-mail" class="form-control"></div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="saran" class=" form-control-label">Saran</label></div>
+                            <div class="col-12 col-md-9"><textarea rows="5" id="saran" name="saran" class="form-control"> </textarea><small class="form-text text-muted">Max : 500 Huruf</small></div>
+                        </div>
+                        <hr>
+                        <input type="text" class="rating rating-loading" name="rating" value="0" data-size="md" data-theme="krajee-gly" title="">
+                        <hr>
+                        <div class="row form-group">
+                            <div class="col col-md-12"><button type="submit" name="kirim" class="btn btn-primary btn-sm">Kirim Saran</button></div>
+
+                        </div>
+                    </form>                        
+
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="assets/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/assets/js/theme.js"></script>
+<!-- Javascript -->
+<script src="assets/wizard/jquery/3.5.1/jquery.min.js"></script>
+<script src="assets/wizard/3.4.1/js/bootstrap.min.js"></script>
+<script src="assets/wizard/wizard.js"></script>
+<script type="text/javascript">
+    function hanyaAngka(event) {
+      var charCode = (event.which) ? event.which : event.keyCode
+      if (charCode > 31 && (charCode < 48 || charCode > 57)){
+        alert('Hanya angka yang diperbolehkan!');
+        return false;
+    }
+    return true;
+}
+</script>
+<script>
+ function fileValidation() {
+     var fileInput = document.getElementById('file');         
+     var filePath = fileInput.value;
+             // Allowing file type
+             var allowedExtensions =/(\.pdf)$/i;
+             if (!allowedExtensions.exec(filePath)) {
+                 alert('Extensi file harus pdf');
+                 fileInput.value = '';
+                 return false;
+             }
+             if(fileInput.files[0].size > 1000000){ // ini untuk ukuran 800KB, 1000000 untuk 1 MB.
+               alert("Maaf. File Terlalu Besar ! Maksimal Upload 1 MB");
+               fileInput.value = "";
+               return false;
+           }
+       }
+   </script>
+
+
+   <!-- jQuery library Auto Complete-->
+   <script>
+    $('input.typeahead').typeahead({
+        source:  function (query, process) {
+            return $.get('aksi/ajaxauto.php', { query: query }, function (data) {
+                console.log(data);
+                data = $.parseJSON(data);
+                return process(data);
+            });
+        }
+    });
+</script>
+<!-- End jQuery library Auto Complete-->
+<script src="assets/js/jquery.min.js"></script> <!-- untuk data -->
+<script type="text/javascript">
+    function isiidkapal(){
+        var carikapal = $("#ship_nm").val();
+        $.ajax({
+            url: 'admin/bacadatakapal.php',
+            data:"ship_nm="+carikapal ,
+        }).success(function (data) {
+            var json = data,
+            obj = JSON.parse(json);
+            $('#ship_id').val(obj.id);
+            $('#master_nm').val(obj.master_nm);
+            $('#flag').val(obj.flag);
+            $('#imo').val(obj.imo);
+            $('#type').val(obj.type);
+            $('#gt').val(obj.gt);
+            $('#kgt').val(obj.kgt);
+            $('#lboat').val(obj.lboat);
+            $('#cat').val(obj.cat);
+
+        });
+    }
+</script>
+<script>
+    function ambilId(file){
+        return document.getElementById(file);
+    }
+
+    $(document).ready(function(){
+        $("#upload").click(function(){
+            ambilId("progressBar").style.display = "block";
+            var file = ambilId("file").files[0];
+
+            if (file!="") {
+                var formdata = new FormData();
+                formdata.append("file", file);
+                var ajax = new XMLHttpRequest();
+                ajax.upload.addEventListener("progress", progressHandler, false);
+                ajax.addEventListener("load", completeHandler, false);
+                ajax.addEventListener("error", errorHandler, false);
+                ajax.addEventListener("abort", abortHandler, false);
+                ajax.open("POST", "s_pengajuan.php");
+                ajax.send(formdata);
+            }
+        });
+    });
+
+    function progressHandler(event){
+        ambilId("loaded_n_total").innerHTML = "Uploaded "+event.loaded+" bytes of "+event.total;
+        var percent = (event.loaded / event.total) * 100;
+        ambilId("progressBar").value = Math.round(percent);
+        ambilId("status").innerHTML = Math.round(percent)+"% uploaded... please wait";
+    }
+    function completeHandler(event){
+        ambilId("status").innerHTML = event.target.responseText;
+        ambilId("progressBar").value = 0;
+    }
+    function errorHandler(event){
+        ambilId("status").innerHTML = "Upload Failed";
+    }
+    function abortHandler(event){
+        ambilId("status").innerHTML = "Upload Aborted";
+    }
+</script>
+<script type="text/javascript">
+    function penting(form){
+      var mincar = 16;
+      var minruf = 3;
+      if (form.wilker.value=="") {
+          alert('Anda belum memilih wilayah kerja !');
+          form.wilker.focus();
+          return false;
+      }
+      return (true);
+  }
+</script>
+<script type="text/javascript">
+    function validasi_input(form){
+      var mincar = 16;
+      var minruf = 3;
+      if (form.nama.value=="") {
+          alert('Nama tidak boleh kosong!');
+          form.nama.focus();
+          return false;
+      }else if(form.email.value=="") {
+          alert('Alamat e-mail tidak boleh kosong !');
+          form.email.focus();
+          return false;
+      }else if(form.saran.value=="") {
+          alert('Saran tidak boleh kosong !');
+          form.saran.focus();
+          return false;
+      }
+      return (true);
+  }
+</script>
+<script>
+    $(document).on('ready', function () {
+        $('.kv-gly-star').rating({
+            containerClass: 'is-star'
+        });
+        $('.kv-gly-heart').rating({
+            containerClass: 'is-heart',
+            defaultCaption: '{rating} hearts',
+            starCaptions: function (rating) {
+                return rating == 1 ? 'One heart' : rating + ' hearts';
+            },
+            filledStar: '<i class="glyphicon glyphicon-heart"></i>',
+            emptyStar: '<i class="glyphicon glyphicon-heart-empty"></i>'
+        });
+        $('.kv-fa').rating({
+            theme: 'krajee-fa',
+            filledStar: '<i class="fa fa-star"></i>',
+            emptyStar: '<i class="fa fa-star-o"></i>'
+        });
+        $('.kv-fa-heart').rating({
+            defaultCaption: '{rating} hearts',
+            starCaptions: function (rating) {
+                return rating == 1 ? 'One heart' : rating + ' hearts';
+            },
+            theme: 'krajee-fa',
+            filledStar: '<i class="fa fa-heart"></i>',
+            emptyStar: '<i class="fa fa-heart-o"></i>'
+        });
+        $('.kv-uni-star').rating({
+            theme: 'krajee-uni',
+            filledStar: '&#x2605;',
+            emptyStar: '&#x2606;'
+        });
+        $('.kv-uni-rook').rating({
+            theme: 'krajee-uni',
+            defaultCaption: '{rating} rooks',
+            starCaptions: function (rating) {
+                return rating == 1 ? 'One rook' : rating + ' rooks';
+            },
+            filledStar: '&#9820;',
+            emptyStar: '&#9814;'
+        });
+        $('.kv-svg').rating({
+            theme: 'krajee-svg',
+            filledStar: '<span class="krajee-icon krajee-icon-star"></span>',
+            emptyStar: '<span class="krajee-icon krajee-icon-star"></span>'
+        });
+        $('.kv-svg-heart').rating({
+            theme: 'krajee-svg',
+            filledStar: '<span class="krajee-icon krajee-icon-heart"></span>',
+            emptyStar: '<span class="krajee-icon krajee-icon-heart"></span>',
+            defaultCaption: '{rating} hearts',
+            starCaptions: function (rating) {
+                return rating == 1 ? 'One heart' : rating + ' hearts';
+            },
+            containerClass: 'is-heart'
+        });
+
+        $('.rating,.kv-gly-star,.kv-gly-heart,.kv-uni-star,.kv-uni-rook,.kv-fa,.kv-fa-heart,.kv-svg,.kv-svg-heart').on(
+            'change', function () {
+                console.log('Rating selected: ' + $(this).val());
+            });
+    });
+</script>
+<script>
+    var x = document.getElementById("gps");
+
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+  x.innerHTML = position.coords.latitude + 
+  "," + position.coords.longitude;
+}
+</script>
+</body>
+
+</html>
